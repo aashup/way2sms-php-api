@@ -1,16 +1,16 @@
 # Way2sms implimentation For Sending free sms
 
-![SMS](https://raw.githubusercontent.com/aashuengineer/way2sms/images/sms.jpg)
+![SMS](https://github.com/aashuengineer/way2sms/blob/master/images/sms.jpg)
 
 ## Installation
 
-## From git:
+### From git:
 
+- git clone https://github.com/aashuengineer/way2sms.git
 
-## From Composer:
+####or
 
-  
-## Direct
+### Direct
 
 1. Click Clone or Download.
 2. Click on Download Zip.
