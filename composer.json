@@ -1,5 +1,5 @@
 {
-  "name": "Aashutosh/way2sms-full-access",
+  "name": "aashutosh/way2sms-full-access",
   "description": "This project used to send sms via way2sms with valid credentials.",
   "keywords": ["sms", "sms api", "way2sms", "way2sms api", "free sms", "bulk sms", "full sms", "complete sms", "php sms"],
   "minimum-stability": "stable",
