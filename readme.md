@@ -8,7 +8,7 @@
 
 - git clone https://github.com/aashuengineer/way2sms.git
 
-####or
+#### or
 
 ### Direct
 
@@ -22,6 +22,6 @@
 8. enjoy!
 
 
-###Note
+### Note
 
 Please use this code on your own risk. The author is no way responsible for the outcome arising out of this.
