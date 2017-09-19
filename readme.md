@@ -12,14 +12,13 @@
 
 ### Direct
 
-1. Click Clone or Download.
-2. Click on Download Zip.
-3. Extract zip in your desire directory
-4. Start WAMP or any PHP Server
-5. Run index.php file 
-6. Fill Credential with msg and phone numbers.
-7. if you want send same msg to multiple contacts then seprate irusing "," Like  XXXXXX,XXXXXX,XXXXX,.... 
-8. enjoy!
+1. Click Clone or Download  this repository.
+2. Extract zip in your desire directory
+3. Start WAMP/XAMPP or any PHP Server
+4. Run index.php file 
+5. Fill Credential, write message and phone numbers.
+6. if you want send same message to multiple contacts, seprate using "," Like  XXXXXX,XXXXXX,XXXXX,.... 
+7. enjoy!
 
 
 ### Note
