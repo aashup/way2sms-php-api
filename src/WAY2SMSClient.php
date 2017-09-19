@@ -14,7 +14,7 @@ class WAY2SMSClient
 
 
     var $curl;
-    var $timeout = 600;
+    var $timeout = 120;
     var $jsToken;
     var $way2smsHost;
     var $refurl;
@@ -24,7 +24,6 @@ class WAY2SMSClient
 
     function login($username, $password) {
         $this->curl = curl_init();
-// Go where the server takes you :P
         curl_setopt($this->curl, CURLOPT_URL, "http://way2sms.com");
         curl_setopt($this->curl, CURLOPT_HEADER, true);
         curl_setopt($this->curl, CURLOPT_FOLLOWLOCATION, false);
@@ -95,8 +94,6 @@ class WAY2SMSClient
         curl_setopt($this->curl, CURLOPT_POST, 1);
         curl_setopt($this->curl, CURLOPT_POSTFIELDS, "ssaction=ss&Token=" . $this->jstoken . "&mobile=" . $phone . "&message=" . $msg . "&button=Login");
         $this->page = curl_exec($this->curl);
-//Check Message Status
-//        var_dump($this->page);
         $pos = strpos($this->page, 'Can\'t submit your message, finished your day quota');
         if($pos !== false){
             return "finished your day quota limit ";
