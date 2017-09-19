@@ -37,13 +37,9 @@ class WAY2SMSClient
         if (preg_match('#Location:(.*)#', $a, $r))
             $this->way2smsHost = trim($r[1]);
 
-
-// Setup for login
         curl_setopt($this->curl, CURLOPT_URL, $this->way2smsHost . "Login1.action");
         curl_setopt($this->curl, CURLOPT_POST, 1);
         curl_setopt($this->curl, CURLOPT_POSTFIELDS, "username=" . urlencode(trim($username)) . "&password=" . urlencode(trim($password)) . "&button=Login");
-//        curl_setopt($this->curl, CURLOPT_REQUESTFIELDS, "username=7398346600&password=pioneer5195&button=Login");
-//        curl_setopt($this->curl, CURLOPT_REQUESTFIELDS, $post);
         curl_setopt($this->curl, CURLOPT_COOKIESESSION, 1);
         curl_setopt($this->curl, CURLOPT_COOKIEJAR, "cookie_way2sms.txt");
         curl_setopt($this->curl, CURLOPT_COOKIEFILE, "cookie_way2sms.txt");
@@ -56,7 +52,6 @@ class WAY2SMSClient
         curl_setopt($this->curl, CURLOPT_NOBODY, false);
         $this->page = $text = curl_exec($this->curl);
         $this->refurl = curl_getinfo($this->curl, CURLINFO_EFFECTIVE_URL);
-//        var_dump($text);
         if (preg_match('/Password entered by you is not correct./', $text, $r)) {
             $this->page = $text;
             return "password not matched.";
@@ -71,11 +66,9 @@ class WAY2SMSClient
             curl_setopt($this->curl, CURLOPT_URL, $newurl);
             $this->page = $text = curl_exec($this->curl);
             $this->refurl = curl_getinfo($this->curl, CURLINFO_EFFECTIVE_URL);
-//            var_dump($text);
         }
 
         $this->refurl = curl_getinfo($this->curl, CURLINFO_EFFECTIVE_URL);
-//        var_dump($this->refurl);
         $newurl = str_replace("ebrdg", "main.action", $this->refurl);
         $newurl = str_replace("id=", "Token=", $newurl);
         $d = explode('?', $newurl);
@@ -83,7 +76,6 @@ class WAY2SMSClient
         curl_setopt($this->curl, CURLOPT_URL, $newurl);
         $this->page = $text = curl_exec($this->curl);
 
-//        var_dump($text);
         $this->refurl = curl_getinfo($this->curl, CURLINFO_EFFECTIVE_URL);
         preg_match('/jsessionToken=(.*)\?/i', $this->refurl, $matches);
         $this->jstoken = $matches[1];
@@ -92,17 +84,12 @@ class WAY2SMSClient
         $this->sendsmsurl = $d[0] . '?Token=' . $this->jstoken;
         curl_setopt($this->curl, CURLOPT_URL, $this->sendsmsurl);
         $this->page = $text = curl_exec($this->curl);
-//        var_dump($text)
         $this->refurl = curl_getinfo($this->curl, CURLINFO_EFFECTIVE_URL);
         return true;
     }
 
     function send($phone, $msg) {
-//        var_dump($this->page);
         $msg = substr($msg, 0, 140);
-
-// Setup to send SMS
-//        var_dump($this->page);
         curl_setopt($this->curl, CURLOPT_URL, $this->way2smsHost . 'smstoss.action');
         curl_setopt($this->curl, CURLOPT_REFERER, $this->refurl);
         curl_setopt($this->curl, CURLOPT_POST, 1);
